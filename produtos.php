@@ -9,20 +9,26 @@ include_once './includes/_header.php';
 
 <div class="container">
     <div class="row mt-5 ml-5">
-        <?php
-        
-        foreach ($produtos as $key => $value){
+    <?php
+        // cria uma variavel que contem SQL executado
+        $sql = "SELECT * FROM produtos WHERE Ativo = 1";
+        // executa o comando SQL
+        $exec = mysqli_query($conn,$sql);
+        //informa a quantidade de registros de dados
+        $numProdutos = mysqli_num_rows($exec);
 
+        // percorre todos os dados extraidos do banco
+        while ($dados = mysqli_fetch_assoc($exec)) {
         ?>
         <div class="card m-3" style="width: 18rem;">
-            <img src="./content/<?php echo $value['imagem'];?>" class="card-img-top" alt="...">
+            <img src="./content/<?php echo $dados['Imagem'];?>" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title"><?php echo $value['nome']; ?></h5>
-                <p class="card-text"><?php echo $value['descricao'];?> </p>
-                <a href="produto-detalhe.php?id=<?php echo $key?>&tipo=promocao" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title"><?php echo $dados['Nome']; ?></h5>
+                <p class="card-text"><?php echo $dados['Descricao'];?> </p>
+                <a href="produto-detalhe.php?id=<?php echo $dados['ProdutoID'];?>&tipo=promocao" class="btn btn-primary">Comprar</a>
             </div>
         </div>
-        <?php 
+        <?php
         }
         ?> 
     </div>

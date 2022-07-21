@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Jul-2022 às 17:20
+-- Tempo de geração: 21-Jul-2022 às 17:19
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 7.3.27
 
@@ -69,7 +69,6 @@ CREATE TABLE `produtos` (
 
 INSERT INTO `produtos` (`ProdutoID`, `Nome`, `Descricao`, `Imagem`, `Preco`, `Categoria`, `Ativo`) VALUES
 (1, 'nft capivara', 'Descrição nft capivara', 'nft-capivara.jpg', 1200, 1, 1),
-(2, 'nft capivara', 'Descrição nft capivara', 'nft-capivara.jpg', 1200, 1, 1),
 (3, 'nft neymar', 'Descrição nft neymar', 'nft-neymar.jpg', 50000, 1, 1),
 (4, 'nft gremio', 'Descrição nft gremio', 'nft-gremio.jpg', 150000, 1, 1),
 (5, 'nft gorila', 'Descrição nft gorila', 'nft-gorila.jpg', 1500, 1, 1),

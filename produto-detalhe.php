@@ -11,12 +11,23 @@ $tipo = $_GET['tipo'];
 
 <div class="container mt-5">
     <div class="row">
+    <?php
+        // cria uma variavel que contem SQL executado
+        $sql = "SELECT * FROM produtos WHERE Ativo = 1 AND ProdutoID = {$id}";
+        // executa o comando SQL
+        $exec = mysqli_query($conn,$sql);
+        //informa a quantidade de registros de dados
+        $numProdutos = mysqli_num_rows($exec);
+
+        // percorre todos os dados extraidos do banco
+        ($dados = mysqli_fetch_assoc($exec))
+        ?>
 
         <div class="col">
-        <h1><?php echo $produtos [$id] ['nome'];?></h1>
-        <p><?php echo $produtos [$id] ['descricao'];?></p>
-        <img src="./content/<?php echo $produtos [$id] ['imagem'];?>" alt="">
-        <h4><?php echo $produtos [$id] ['preco'];?></h4>
+        <h1><?php echo $dados ['Nome'];?></h1>
+        <p><?php echo $dados ['Descricao'];?></p>
+        <img src="./content/<?php echo $dados ['Imagem'];?>" alt="">
+        <h4><?php echo $dados ['Preco'];?></h4>
         </div>
     </div>
     <div class="row">
